@@ -1,0 +1,13 @@
+.skill-tag {
+  display: inline-block;
+  height: 24px;
+  padding: 4px 8px;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+
+  .atcive {
+    border: 1px solid var(--primary-color);
+  }
+}

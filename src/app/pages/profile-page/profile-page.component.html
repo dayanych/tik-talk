@@ -1,0 +1,77 @@
+@if (profile$ | async; as profile) {
+  <header class="header">
+    <app-account-header
+      [account]="profile"
+    ></app-account-header>
+
+    <a>
+      <app-common-button
+        text="Редактировать"
+      >
+      </app-common-button>
+    </a>
+  </header>
+
+  <main class="body">
+    <div>
+      <app-post-feed></app-post-feed>
+    </div>
+    <div class="profile-info">
+      <div class="subscribers">
+        <p class="subscribers__text">
+          <span class="h6">Подписчики</span>
+          <!-- <span class="subscribers__count">
+            {{ subscribers$ | async }}
+          </span> -->
+        </p>
+        <ul class="subscribers__list">
+          @for (subscriber of subscribers$ | async; track subscriber.id) {
+            <a
+              [routerLink]="['/profile', subscriber.id]"
+            >
+              <img
+                [src]="subscriber.avatarUrl | imageUrl"
+                [alt]="subscriber.username"
+                class="subscribers__avatar"
+              >
+            </a>
+          }
+          <a
+            class="subscribers__link"
+            [routerLink]="['/subscribers']"
+          >
+            <svg name="plus" class="subscribers__link--svg"></svg>
+          </a>
+        </ul>
+      </div>
+
+      <div class="skills">
+        <span class="h6">Навыки</span>
+        <ul class="skills__list">
+          @for (skill of profile.stack; track skill) {
+            <app-skill-tag
+              [skill]="skill"
+            >
+            </app-skill-tag>
+          }
+        </ul>
+        @if (profile.stack.length === 0) {
+          <p class="skills__text">
+            Нет навыков
+          </p>
+        }
+      </div>
+
+      <div class="description">
+        <span class="h6">О себе</span>
+        <p class="description__text">
+          {{ profile.description }}
+          @if (profile.description.length === 0) {
+            Нет описания
+          }
+        </p>
+      </div>
+    </div>
+  </main>
+}
+

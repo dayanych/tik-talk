@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <img
+    src="/assets/icons/logo.svg"
+    alt="logo"
+    height="75"
+    class="logo"
+  >
+
+  <nav>
+    <ul class="menu">
+      @for (item of menuItems; track item.label) {
+        <li class="menu__item">
+          <button class="menu__button">
+            <svg [name]="item.icon" class="menu__button--svg"></svg>
+            <span>{{ item.label }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="subscribers">
+    <p class="subscribers__text">Подписчики</p>
+    <ul class="subscribers__list">
+      @for (subscriber of subscribers$ | async; track subscriber.id) {
+        <app-account-card
+          [account]="subscriber"
+        ></app-account-card>
+      }
+    </ul>
+    <a
+      class="subscribers__link"
+      [routerLink]="['/subscribers']"
+    >
+      <span class="subscribers__text">
+        Все подписчики
+      </span>
+      <svg name="arrowRight" class="subscribers__link--svg"></svg>
+    </a>
+  </div>
+
+  <footer class="footer">
+    @if (me(); as me) {
+      <app-account-card
+        [account]="me"
+      ></app-account-card>
+      <a
+        class="footer__link"
+        [routerLink]="['/settings']"
+      >
+        <svg name="settings" class="footer__link--svg"></svg>
+      </a>
+    }
+  </footer>
+</div>

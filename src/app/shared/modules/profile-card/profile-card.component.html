@@ -1,0 +1,36 @@
+<div class="profile-card">
+  <div class="title">
+    <img
+      [src]="profile.avatarUrl | imageUrl"
+      [alt]="profile.username"
+      class="title__avatar"
+    >
+    <div class="title__name">
+      <strong class="h6">
+        {{ profile.firstName }}
+        {{ profile.lastName }}
+      </strong>
+      <span class="subtitle">
+        {{ profile.username }}
+      </span>
+    </div>
+  </div>
+
+  <div class="description">
+    {{ profile.description }}
+  </div>
+
+  <div class="tags">
+    @for (skill of profile.stack; track skill) {
+      <app-skill-tag
+        [skill]="skill"
+      ></app-skill-tag>
+    }
+  </div>
+
+  <div class="actions">
+    <app-common-button
+      text="Подписаться"
+    ></app-common-button>
+  </div>
+</div>

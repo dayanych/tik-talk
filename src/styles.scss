@@ -1,0 +1,76 @@
+:root {
+  --dark-color: #000000;
+  --light-color: #FFFFFF;
+  --primary-color: #AE7AFF;
+  --shadow-color: #979797;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100dvh;
+  color: var(--light-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--dark-color);
+  background-image: url(/assets/images/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.h1 {
+  font-size: 48px;
+  font-weight: 800px;
+}
+
+.h4 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.h6 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 14px;
+}
+
+.control-label {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  background-color: var(--dark-color);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--light-color);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

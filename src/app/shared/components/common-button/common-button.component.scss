@@ -1,0 +1,15 @@
+.button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.full-width {
+  width: 100%;
+}

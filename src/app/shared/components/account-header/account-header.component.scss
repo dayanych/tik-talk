@@ -1,0 +1,19 @@
+:host {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 24px;
+}
+
+.avatar {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}

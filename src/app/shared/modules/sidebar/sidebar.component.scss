@@ -1,0 +1,116 @@
+:host {
+  position: relative;
+  display: block;
+  padding: 20px 12px;
+  background-color: var(--dark-color);
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__item {
+    display: block;
+  }
+  
+  &__button {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 16px 1fr max-content;
+    grid-gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--light-color);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #161616;
+      color: var(--primary-color);
+
+      .menu__svg {
+        fill: var(--primary-color);
+      }
+    }
+
+    &--svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--light-color);
+    }
+  }
+
+}
+
+.subscribers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 16px;
+
+  &__text {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .subscribers__text {
+      color: var(--primary-color);
+    }
+
+    &--svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--primary-color);
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  justify-items: flex-end;
+  padding: 4px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #161616;
+  }
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &--svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--light-color);
+    }
+  }
+}

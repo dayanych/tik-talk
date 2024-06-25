@@ -1,0 +1,73 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body {
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 350px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.subscribers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__list {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &--svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--light-color);
+    }
+  }
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+} 
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__text {
+    font-size: 12px;
+  }
+}
