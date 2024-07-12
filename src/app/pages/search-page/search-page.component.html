@@ -1,5 +1,7 @@
+<app-filters></app-filters>
+
 <div class="wrapper">
-  @for (account of accounts; track account.id) {
+  @for (account of accounts(); track account.id) {
     <app-profile-card
       [profile] = account
     ></app-profile-card>

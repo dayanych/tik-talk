@@ -72,7 +72,9 @@ export class AuthService {
   refreshAuthToken() {
     return this.http.post<AuthResponse>(
       `${this.baseApiUrl}/auth/refresh`,
-      {},
+      {
+        refresh_token: this.auth?.refreshToken,
+      },
     ).pipe(
       tap((res) => this.saveTokens(res)),
       catchError((error) => {

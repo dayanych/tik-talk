@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AccountsService } from '../../api/accounts/accounts.service';
-import { Account } from '../../shared/entites/account';
 import { ProfileCardComponent } from "../../shared/modules/profile-card/profile-card.component";
+import { FiltersComponent } from "./filters/filters.component";
 
 @Component({
     selector: 'app-search-page',
@@ -9,16 +9,15 @@ import { ProfileCardComponent } from "../../shared/modules/profile-card/profile-
     templateUrl: './search-page.component.html',
     styleUrl: './search-page.component.scss',
     imports: [
-        ProfileCardComponent
+        ProfileCardComponent,
+        FiltersComponent
     ]
 })
 export class SearchPageComponent {
   accountsService: AccountsService = inject(AccountsService);
-  accounts: Account[] = [];
+  accounts = this.accountsService.filteredAccounts;
 
   constructor() {
-    this.accountsService.getTestAccounts().subscribe((data) => {
-      this.accounts = data;
-    });
+    
   }
 }

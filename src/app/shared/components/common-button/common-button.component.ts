@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './common-button.component.scss'
 })
 export class CommonButtonComponent {
-  @Input() text!: string;
   @Input() isFullWidth?: boolean;
+  @Input() isTransparent?: boolean;
 }

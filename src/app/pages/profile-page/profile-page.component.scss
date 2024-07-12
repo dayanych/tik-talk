@@ -1,10 +1,12 @@
 .header {
+  padding: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .body {
+  padding: 24px;
   display: grid;
   grid-gap: 64px;
   grid-template-columns: 1fr 350px;
@@ -35,13 +37,12 @@
 
   &__link {
     display: flex;
-    gap: 10px;
     align-items: center;
 
     &--svg {
       width: 16px;
       height: 16px;
-      fill: var(--light-color);
+      color: var(--light-color);
     }
   }
 }

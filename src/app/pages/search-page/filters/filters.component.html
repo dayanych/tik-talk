@@ -1,0 +1,32 @@
+<form class="form" [formGroup]="searchForm">
+  <label class="form__label">
+    <span>Имя пользователя</span>
+    <input
+      class="form__input"
+      type="text"
+      formControlName="firstName"
+    >
+  </label>
+  <label class="form__label">
+    <span>Фамилия пользователя</span>
+    <input
+      class="form__input"
+      type="text"
+      formControlName="lastName"
+    >
+  </label>
+  <label class="form__label">
+    <span>Навыки</span>
+    <input
+      class="form__input"
+      type="text"
+      formControlName="stack"
+    >
+  </label>
+
+  <app-common-button
+    class="form__button"
+  >
+    <svg name="filter" class="form__button--svg"></svg>
+  </app-common-button>
+</form>

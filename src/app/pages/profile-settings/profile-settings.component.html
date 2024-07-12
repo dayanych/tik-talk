@@ -1,1 +1,99 @@
-<p>profile-settings works!</p>
+@if (profile$ | async; as profile) {
+  <header class="header">
+    <app-account-header
+      [account]="profile"
+    ></app-account-header>
+  </header>
+
+  <form class="form" [formGroup]="form">
+    <div class="two-columns">
+      <label class="form__label">
+        <span>Имя</span>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="firstName"
+        >
+      </label>
+      <label class="form__label">
+        <span>Фамилия</span>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="lastName"
+        >
+      </label>
+    </div>
+
+    <div>
+      <label class="form__label">
+        <span>Telegram username</span>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="username"
+        >
+      </label>
+    </div>
+
+    <div>
+      <label class="form__label">
+        <span>O себе</span>
+        <textarea
+          class="form__input form__textarea"
+          type="text"
+          rows="4"
+          formControlName="description"
+        ></textarea>
+      </label>
+    </div>
+
+    <div>
+      <label class="form__label">
+        <span>Фото профиля</span>
+        <app-avatar-upload
+          [avatarUrl]="profile.avatarUrl | imageUrl"
+        ></app-avatar-upload>
+      </label>
+    </div>
+
+    <div>
+      <label class="form__label">
+        <span>Навыки</span>
+        <input
+          class="form__input"
+          type="text"
+          formControlName="stack"
+        >
+      </label>
+    </div>
+
+    <div class="form__actions">
+      <div class="two-columns">
+        <app-common-button
+          class="form__button"
+          [isTransparent]="true"
+          (click)="onDelete()"
+        >
+          <svg name="bin" class="form__button--svg bin"></svg>
+        </app-common-button>
+        <app-common-button
+          class="form__button"
+          [isTransparent]="true"
+          (click)="onLogout()"
+        >
+          <svg name="logout" class="form__button--svg"></svg>
+        </app-common-button>
+      </div>
+      <div>
+        <app-common-button
+          class="form__button"
+          type="submit"
+          (click)="onSave()"
+        >
+          Сохранить
+        </app-common-button>
+      </div>
+    </div>
+  </form>
+}

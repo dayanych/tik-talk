@@ -13,3 +13,9 @@
 .full-width {
   width: 100%;
 }
+
+.transparent {
+  background-color: transparent;
+  color: var(--light-color);
+  border: 1px solid var(--light-color);
+}

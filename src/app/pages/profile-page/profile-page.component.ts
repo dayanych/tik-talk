@@ -8,6 +8,7 @@ import { AccountHeaderComponent } from "../../shared/components/account-header/a
 import { CommonButtonComponent } from "../../shared/components/common-button/common-button.component";
 import { ImageUrlPipe } from "../../shared/pipes/image-url.pipe";
 import { SkillTagComponent } from "../../shared/components/skill-tag/skill-tag.component";
+import { SvgIconComponent } from '../../shared/components/svg-icon/svg-icon.component';
 import { PostFeedComponent } from "./post-feed/post-feed.component";
 
 @Component({
@@ -22,7 +23,8 @@ import { PostFeedComponent } from "./post-feed/post-feed.component";
         RouterLink,
         ImageUrlPipe,
         SkillTagComponent,
-        PostFeedComponent
+        PostFeedComponent,
+        SvgIconComponent,
     ]
 })
 export class ProfilePageComponent {

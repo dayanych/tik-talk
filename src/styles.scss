@@ -3,6 +3,8 @@
   --light-color: #FFFFFF;
   --primary-color: #AE7AFF;
   --shadow-color: #979797;
+  --light-transparent-color: rgba(255, 255, 255, 0.75);
+  --warning-color: #E99898;
 }
 
 *,
@@ -68,9 +70,17 @@ button {
   border: none;
   background-color: inherit;
   font-family: inherit;
+  font-size: inherit;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  font-size: inherit;
+}
+
+textarea,
+input {
+  background-color: inherit;
+  font-family: inherit;
 }

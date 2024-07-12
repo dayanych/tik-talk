@@ -11,8 +11,9 @@ const apiCOnfig = getApiConfig();
   providedIn: 'root'
 })
 export class AccountsService {
-  me = signal<Account | null>(null);
   http: HttpClient = inject(HttpClient);
+  me = signal<Account | null>(null);
+  filteredAccounts = signal<Account[]>([]);
   baseApiUrl = apiCOnfig.apiUrl;
 
   getTestAccounts() {
@@ -49,5 +50,54 @@ export class AccountsService {
           total: response.total,
         }))
       );
+  }
+
+  updateMe(payload: Partial<Account>) {
+    const body = {
+      firstName: payload.firstName,
+      lastName: payload.lastName,
+      city: payload.city,
+      description: payload.description,
+      stack: payload.stack,
+    };
+
+    return this.http.patch<Account>(`${this.baseApiUrl}/account/me`, body);
+  }
+
+  deleteMe() {
+    return this.http.delete<void>(`${this.baseApiUrl}/account/me`);
+  }
+
+  uploadAvatar(file: File) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    return this.http.post<Account>(`${this.baseApiUrl}/account/upload_image`, formData);
+  }
+
+  filterAccounts({
+    page = 1,
+    size = 50,
+    firstName = '',
+    lastName = '',
+    stack = '',
+  }: {
+    page?: number;
+    size?: number;
+    firstName?: string;
+    lastName?: string;
+    stack?: string;
+  }) {
+    return this.http.get<GetAllAccountsResponse>(`${this.baseApiUrl}/account/accounts`, {
+      params: {
+        page: +page,
+        size: +size,
+        firstName,
+        lastName,
+        stack,
+      }
+    }).pipe(
+      tap((response: GetAllAccountsResponse) => this.filteredAccounts.set(response.items))
+    )
   }
 }

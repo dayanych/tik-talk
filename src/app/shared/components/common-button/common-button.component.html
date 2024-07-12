@@ -1,6 +1,7 @@
 <button
   class="button"
   [class.full-width]="isFullWidth"
+  [class.transparent]="isTransparent"
 >
-  {{ text }}
+  <ng-content></ng-content>
 </button>
